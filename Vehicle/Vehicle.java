@@ -26,8 +26,8 @@ public class Vehicle
         return this.fuel;
     }
 
-    public void repair(){
-        this.health = 50;
+    public void repair(){ 
+        this.health = 100;
     }
 
     public void 
