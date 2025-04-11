@@ -7,6 +7,7 @@ public class Car extends Vehicle
         this.year = year;
         this.fuel = fuel;
         this.doors = doors;
+        this.health = 50;
         this.broken = false;
     }
 }

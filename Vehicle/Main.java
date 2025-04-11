@@ -14,40 +14,44 @@ public class Main{
 
         Car car1 = new Car(brand, year, fuel, doors);
 
+        System.out.println("\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n");
         System.out.println("==============================");
 
         boolean parar = false;
         int currentFuel;
 
         do{
-            System.out.println("Se vira:\n1 - Drive\n2 - fillFuel\n3 - Crash\n4 - show Status\n5 - show Status");
+            System.out.println("Se vira:\n1 - Drive\n2 - fillFuel\n3 - repair\n4 - show Status");
             switch (reader.nextInt()) {
                 case 0:
                     parar = true;
                     break;
                 case 1:
-                    if(car1.showState()){
-                        System.out.println("\n\n\n\n\n\n\n\n\nInfelizmente o Carro está quebrado, incapaz de ser conduzido\n");
-                    }else{
-                        currentFuel = car1.drive();
-                        System.out.println("\n\n\n\n\n\n\n\n\nDirigiu, agora está com essa gasolina: " + currentFuel + "\n");                        
-                    }
+                    System.out.println("\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n");
+                    currentFuel = car1.drive();
+                    if(currentFuel == -3) { System.out.println("O Carro quebrou...\n"); break;}
+                    if(currentFuel <= 0) { System.out.println("O carro está sem gasolina...\n"); break; }
+                    
+                    System.out.println("Dirigiu, agora está com essa gasolina: " + currentFuel + "\n");                        
                     break;
                 case 2:
+                    System.out.println("\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n");
                     System.out.println("Insira a quantidade de gasolina a ser abastecida\n");
                     currentFuel = car1.fillFuel(reader.nextInt());
-                    System.out.println("\n\n\n\n\n\n\n\n\nReabastecido, agora está com essa gasolina: " + currentFuel);
+                    System.out.println("Reabastecido, agora está com essa gasolina: " + currentFuel);
                     break;
                 case 3:
-                    if(car1.showState){
-                        System.out.println("\n\n\n\n\n\n\n\n\nQuebrar duas vezes guerreiro? num compensa\n");
-                    }else{
-                        car1.Crash();
-                        System.out.println("\n\n\n\n\n\n\n\n\nAh não... O carro bateu.\n");
-                    }
+                    System.out.println("\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n");
+                    car1.repair();
+                    System.out.println("Carro Reparado, ufa\n");
                     break;
-            }
-            System.out.println("==============================");
+                case 4:
+                System.out.println("\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n");
+                    car1.showStatus();
+                    break;
+                
+                }
+                System.out.println("==============================");
 
         }while(!parar);
 

@@ -1,19 +1,24 @@
+import java.time.LocalDateTime;
+
 public class Vehicle
 {
     protected String brand;
     protected int year;
     protected int fuel;
     protected boolean broken;
+    protected int health;
 
     public int drive(){ // returns the current fuel state
-        if(fuel > 1){
+        if(this.fuel <= 0){
+            return fuel;
+        }
+        if(this.health <= 0){
+            return -3;
+        }
+            this.health -= getLastDigitOfTime();
+
             fuel-=2;
             return fuel;
-        }
-        else{
-            System.out.println("Tá sem gazunila pae");
-            return fuel;
-        }
     }
 
     public int fillFuel(int fuel){ // returns the current fuel state
@@ -21,19 +26,32 @@ public class Vehicle
         return this.fuel;
     }
 
-    public void crash(){
-        System.out.println("Bateu ;-; \n");
-        this.broken = true;
+    public void repair(){
+        this.health = 50;
+    }
+
+    public void 
+    showStatus(){
+        System.out.println("Brand: "+this.brand);
+        System.out.println("\nYear: "+this.year);
+        System.out.println("\nCurrent Fuel: "+this.fuel);
+        if(this.health <= 0) this.health = 0;
+        System.out.println("\nDurability: "+this.health);
     }
 
     public boolean showState(){
-        if(this.broken){
-            System.out.println("Tá quebrado pae \n");
-            return broken;
-        }
-        else{
-            System.out.println("Tá Funfando \n");
-            return broken;
-        }
+        return this.broken;
+    }
+
+    private int getLastDigitOfTime(){
+        LocalDateTime now = LocalDateTime.now();
+        
+        String dateTimeString = now.toString();
+        
+        char lastChar = dateTimeString.charAt(dateTimeString.length() - 1);
+        
+        int lastDigit = Character.getNumericValue(lastChar);
+
+        return lastDigit;
     }
 }
