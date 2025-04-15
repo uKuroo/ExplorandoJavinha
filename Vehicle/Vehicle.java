@@ -18,6 +18,7 @@ public class Vehicle
             this.health -= getLastDigitOfTime();
 
             fuel-=2;
+            if(fuel < 0) fuel = 0;
             return fuel;
     }
 
