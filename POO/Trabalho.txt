@@ -1,0 +1,21 @@
+Classes:
+  - Event
+    . string Title,         |
+    . string Description,   |
+    . date Date,            |  PROTECTED
+    . string Local,         |
+    . double duration,      |
+    . int capacity;         |
+
+  - Lectures : (Event)
+    . boolean allow_questions,
+    . (object) speaker,
+    . List<Object> participants
+
+  - Workshops : (Event)
+    . String materials
+    . List<Object> participants
+
+  - Courses : (Event)
+    . List<Students> students,
+    . Object instructor,
